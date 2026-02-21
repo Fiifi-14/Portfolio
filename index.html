@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kingsford Fiifi Amponsah Donkor – Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ffffff;
+    --surface: #f7f7f5;
+    --dark: #0a0a0a;
+    --mid: #3a3a3a;
+    --muted: #8a8a8a;
+    --light: #e8e8e5;
+    --border: #ebebea;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Geist', sans-serif;
+    background: var(--bg);
+    color: var(--dark);
+    overflow-x: hidden;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 7%; height: 64px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Geist', sans-serif;
+    font-weight: 600; font-size: .82rem;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--dark); text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    color: var(--muted); text-decoration: none; font-size: .78rem;
+    font-weight: 500; letter-spacing: 1px; text-transform: uppercase;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--dark); }
+  .nav-cta {
+    font-size: .75rem; font-weight: 600; letter-spacing: 1.5px;
+    text-transform: uppercase; text-decoration: none;
+    color: var(--bg); background: var(--dark);
+    padding: 9px 22px; border-radius: 2px; transition: opacity .2s;
+  }
+  .nav-cta:hover { opacity: 0.75; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    padding: 160px 7% 100px;
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 80px; align-items: center;
+    border-bottom: 1px solid var(--border);
+  }
+  .hero-eyebrow {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 36px;
+  }
+  .eyebrow-line { width: 28px; height: 1px; background: var(--muted); }
+  .eyebrow-text {
+    font-size: .72rem; font-weight: 500; letter-spacing: 2.5px;
+    text-transform: uppercase; color: var(--muted);
+  }
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-optical-sizing: auto;
+    font-size: clamp(3rem, 5.5vw, 5rem);
+    font-weight: 300; line-height: 1.06; letter-spacing: -2px;
+    margin-bottom: 36px; color: var(--dark);
+  }
+  h1 em { font-style: italic; font-weight: 300; color: var(--muted); }
+  .hero-roles {
+    display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 36px;
+  }
+  .role-pill {
+    font-size: .72rem; font-weight: 500; letter-spacing: .8px;
+    text-transform: uppercase; padding: 5px 13px;
+    border: 1px solid var(--border); border-radius: 2px;
+    color: var(--mid); background: var(--surface);
+    transition: border-color .2s, color .2s;
+  }
+  .role-pill:hover { border-color: var(--dark); color: var(--dark); }
+  .hero-desc {
+    font-size: .95rem; color: var(--muted); line-height: 1.9;
+    max-width: 480px; margin-bottom: 40px; font-weight: 400;
+  }
+  .hero-actions { display: flex; gap: 12px; }
+  .btn-solid {
+    background: var(--dark); color: #fff; padding: 12px 28px;
+    border-radius: 2px; font-size: .78rem; font-weight: 600;
+    letter-spacing: 1px; text-transform: uppercase; text-decoration: none;
+    transition: opacity .2s; display: inline-block;
+  }
+  .btn-solid:hover { opacity: 0.75; }
+  .btn-outline {
+    background: transparent; color: var(--dark);
+    border: 1px solid var(--border); padding: 12px 28px;
+    border-radius: 2px; font-size: .78rem; font-weight: 600;
+    letter-spacing: 1px; text-transform: uppercase; text-decoration: none;
+    transition: border-color .2s, background .2s; display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--dark); background: var(--surface); }
+
+  /* Hero side panel */
+  .hero-panel { display: flex; flex-direction: column; gap: 1px; }
+  .hp-card {
+    background: var(--surface); padding: 20px 24px;
+    border: 1px solid var(--border);
+  }
+  .hp-card:first-child { border-radius: 3px 3px 0 0; }
+  .hp-card:last-child { border-radius: 0 0 3px 3px; }
+  .hp-label {
+    font-size: .65rem; font-weight: 600; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 6px;
+  }
+  .hp-value { font-size: .88rem; font-weight: 400; color: var(--dark); }
+  .hp-value a { color: var(--dark); text-decoration: none; }
+  .hp-value a:hover { text-decoration: underline; }
+  .status-dot {
+    display: inline-flex; align-items: center; gap: 7px;
+  }
+  .status-dot::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: #22c55e; flex-shrink: 0;
+    animation: pulse-g 2.5s ease-in-out infinite;
+  }
+  @keyframes pulse-g {
+    0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,0.4)}
+    50%{box-shadow:0 0 0 5px rgba(34,197,94,0)}
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 100px 7%; border-bottom: 1px solid var(--border); }
+  .sec-header { margin-bottom: 60px; }
+  .sec-num {
+    font-family: 'Fraunces', serif; font-optical-sizing: auto;
+    font-size: .82rem; font-style: italic; font-weight: 300;
+    color: var(--muted); margin-bottom: 10px; display: block;
+  }
+  h2 {
+    font-family: 'Fraunces', serif; font-optical-sizing: auto;
+    font-size: clamp(1.9rem, 3vw, 2.7rem);
+    font-weight: 300; letter-spacing: -1px; line-height: 1.15; color: var(--dark);
+  }
+  h2 em { font-style: italic; color: var(--muted); }
+
+  /* ── ABOUT ── */
+  .about { background: var(--surface); }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
+  }
+  .about-text p {
+    font-size: .9rem; color: var(--muted); line-height: 1.95; margin-bottom: 18px;
+  }
+  .about-text p strong { color: var(--dark); font-weight: 600; }
+  .about-facts {
+    margin-top: 36px; display: grid; grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border); border-radius: 3px; overflow: hidden;
+  }
+  .fact { background: var(--bg); padding: 18px 20px; border: 1px solid var(--border); }
+  .fact-label {
+    font-size: .65rem; font-weight: 600; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 5px;
+  }
+  .fact-val { font-size: .88rem; font-weight: 500; color: var(--dark); }
+  .about-right { display: flex; flex-direction: column; gap: 16px; }
+  .about-quote {
+    padding: 28px 30px;
+    border-left: 1.5px solid var(--dark); background: var(--bg);
+  }
+  .about-quote p {
+    font-family: 'Fraunces', serif; font-optical-sizing: auto;
+    font-size: 1.05rem; font-style: italic; font-weight: 300;
+    color: var(--dark); line-height: 1.75;
+  }
+  .about-stat {
+    padding: 24px 28px; border: 1px solid var(--border);
+    border-radius: 3px; background: var(--bg);
+  }
+  .about-stat-num {
+    font-family: 'Fraunces', serif; font-optical-sizing: auto;
+    font-size: 2.8rem; font-weight: 300; font-style: italic;
+    color: var(--dark); line-height: 1; margin-bottom: 6px;
+  }
+  .about-stat-label { font-size: .78rem; color: var(--muted); }
+
+  /* ── SKILLS ── */
+  .skills-table {
+    display: grid; grid-template-columns: repeat(3,1fr);
+    border: 1px solid var(--border); border-radius: 3px; overflow: hidden;
+  }
+  .skill-cell {
+    background: var(--bg); padding: 26px 26px 30px;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    transition: background .2s;
+  }
+  .skill-cell:nth-child(3n) { border-right: none; }
+  .skill-cell:nth-child(n+4) { border-bottom: none; }
+  .skill-cell:hover { background: var(--surface); }
+  .skill-cell-title {
+    font-size: .72rem; font-weight: 600; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--dark);
+    margin-bottom: 16px; padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 5px; }
+  .stag {
+    font-size: .72rem; font-weight: 400; color: var(--muted);
+    background: var(--surface); border: 1px solid var(--border);
+    padding: 4px 10px; border-radius: 2px;
+    transition: color .15s;
+  }
+  .skill-cell:hover .stag { color: var(--mid); }
+
+  /* ── PROJECTS ── */
+  .projects-list { display: flex; flex-direction: column; }
+  .project-row {
+    display: grid; grid-template-columns: 56px 1fr auto;
+    gap: 36px; align-items: start;
+    padding: 40px 0; border-bottom: 1px solid var(--border);
+  }
+  .project-row:last-child { border-bottom: none; }
+  .project-index {
+    font-family: 'Fraunces', serif; font-optical-sizing: auto;
+    font-style: italic; font-weight: 300; font-size: 1.5rem;
+    color: var(--light); padding-top: 2px; transition: color .2s;
+  }
+  .project-row:hover .project-index { color: var(--muted); }
+  .project-info h3 {
+    font-family: 'Fraunces', serif; font-optical-sizing: auto;
+    font-size: 1.3rem; font-weight: 300; letter-spacing: -.3px;
+    color: var(--dark); margin-bottom: 8px;
+  }
+  .project-tags-row { display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 10px; }
+  .ptag {
+    font-size: .65rem; font-weight: 600; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--muted);
+    border: 1px solid var(--border); padding: 3px 9px; border-radius: 2px;
+  }
+  .project-info p { font-size: .86rem; color: var(--muted); line-height: 1.85; max-width: 540px; }
+  .project-link {
+    font-size: .72rem; font-weight: 600; letter-spacing: 1px;
+    text-transform: uppercase; color: var(--dark); text-decoration: none;
+    border: 1px solid var(--border); padding: 9px 16px; border-radius: 2px;
+    white-space: nowrap; align-self: center;
+    transition: background .2s, border-color .2s;
+    display: flex; align-items: center; gap: 5px;
+  }
+  .project-link:hover { background: var(--surface); border-color: var(--dark); }
+  .project-link-dim { color: var(--muted); }
+
+  /* ── EXPERIENCE ── */
+  .experience { background: var(--surface); }
+  .exp-list { display: flex; flex-direction: column; }
+  .exp-row {
+    display: grid; grid-template-columns: 190px 1fr;
+    gap: 60px; padding: 40px 0; border-bottom: 1px solid var(--border);
+  }
+  .exp-row:last-child { border-bottom: none; }
+  .exp-date { font-size: .78rem; color: var(--muted); padding-top: 3px; letter-spacing: .3px; }
+  .exp-content h3 {
+    font-family: 'Fraunces', serif; font-optical-sizing: auto;
+    font-size: 1.1rem; font-weight: 400; color: var(--dark); margin-bottom: 4px;
+  }
+  .exp-company {
+    font-size: .75rem; font-weight: 600; letter-spacing: 1px;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 14px;
+  }
+  .exp-desc { font-size: .86rem; color: var(--muted); line-height: 1.9; max-width: 560px; }
+
+  /* ── CONTACT ── */
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
+  }
+  .contact-intro p {
+    font-size: .9rem; color: var(--muted); line-height: 1.9; margin-bottom: 36px;
+  }
+  .contact-links {
+    display: flex; flex-direction: column;
+    border: 1px solid var(--border); border-radius: 3px; overflow: hidden;
+  }
+  .clink {
+    display: flex; align-items: center; gap: 14px;
+    background: var(--surface); padding: 16px 20px;
+    text-decoration: none; border-bottom: 1px solid var(--border);
+    transition: background .2s;
+  }
+  .clink:last-child { border-bottom: none; }
+  .clink:hover { background: var(--light); }
+  .clink-icon {
+    width: 34px; height: 34px; border-radius: 2px;
+    background: var(--bg); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: .85rem; flex-shrink: 0;
+  }
+  .clink-text { flex: 1; }
+  .clink-label {
+    font-size: .62rem; font-weight: 600; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 2px;
+  }
+  .clink-val { font-size: .84rem; font-weight: 500; color: var(--dark); }
+  .clink-arrow { color: var(--muted); font-size: .85rem; }
+
+  /* Form */
+  .contact-form { display: flex; flex-direction: column; gap: 11px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; }
+  .cf-group { display: flex; flex-direction: column; gap: 6px; }
+  .cf-group label {
+    font-size: .62rem; font-weight: 600; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--muted);
+  }
+  .cf-group input, .cf-group textarea {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: 2px; padding: 11px 13px;
+    color: var(--dark); font-family: 'Geist', sans-serif; font-size: .86rem;
+    outline: none; transition: border-color .2s; resize: none;
+  }
+  .cf-group input:focus, .cf-group textarea:focus { border-color: var(--dark); }
+  .cf-group input::placeholder, .cf-group textarea::placeholder { color: var(--light); }
+  .cf-group textarea { min-height: 120px; }
+  .btn-form {
+    background: var(--dark); color: #fff;
+    border: none; padding: 12px 28px; border-radius: 2px;
+    font-family: 'Geist', sans-serif; font-size: .75rem; font-weight: 600;
+    letter-spacing: 1.5px; text-transform: uppercase;
+    cursor: pointer; align-self: flex-start; transition: opacity .2s;
+  }
+  .btn-form:hover { opacity: 0.75; }
+  .form-success {
+    display: none; padding: 36px; background: var(--surface);
+    border: 1px solid var(--border); border-radius: 3px; text-align: center;
+  }
+  .form-success.show { display: block; }
+  .form-success h3 {
+    font-family: 'Fraunces', serif; font-optical-sizing: auto;
+    font-size: 1.2rem; font-weight: 300; font-style: italic; margin-bottom: 8px;
+  }
+  .form-success p { font-size: .84rem; color: var(--muted); }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 24px 7%;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 12px;
+    border-top: 1px solid var(--border);
+  }
+  footer p { font-size: .75rem; color: var(--muted); letter-spacing: .3px; }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a {
+    font-size: .7rem; font-weight: 500; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--muted); text-decoration: none;
+    transition: color .2s;
+  }
+  .footer-links a:hover { color: var(--dark); }
+
+  /* ── REVEAL ── */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  @media(max-width: 960px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-panel { display: none; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+    .skills-table { grid-template-columns: 1fr 1fr; }
+    .skill-cell:nth-child(3n) { border-right: 1px solid var(--border); }
+    .skill-cell:nth-child(2n) { border-right: none; }
+    .exp-row { grid-template-columns: 1fr; gap: 6px; }
+  }
+  @media(max-width: 600px) {
+    nav { padding: 0 4%; }
+    .nav-links { display: none; }
+    section { padding: 64px 4%; }
+    footer { padding: 20px 4%; }
+    .hero { padding: 110px 4% 70px; }
+    h1 { letter-spacing: -1px; }
+    .skills-table { grid-template-columns: 1fr; }
+    .skill-cell:nth-child(n) { border-right: none; }
+    .form-row { grid-template-columns: 1fr; }
+    .project-row { grid-template-columns: 40px 1fr; }
+    .project-link { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">KFAD</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Hire Me</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <div class="hero-eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">Portfolio — Accra, Ghana</span>
+    </div>
+    <h1>Kingsford<br>Fiifi <em>Amponsah</em><br>Donkor</h1>
+    <div class="hero-roles">
+      <span class="role-pill">UI/UX Designer</span>
+      <span class="role-pill">Product Manager</span>
+      <span class="role-pill">Full Stack Developer</span>
+      <span class="role-pill">Entrepreneur</span>
+      <span class="role-pill">Cloud Computing</span>
+    </div>
+    <p class="hero-desc">I design thoughtful digital experiences, build scalable products, and lead with strategic vision. Currently shaping the future of tech education in Ghana at Ambitious Concern.</p>
+    <div class="hero-actions">
+      <a href="#projects" class="btn-solid">View Work</a>
+      <a href="#contact" class="btn-outline">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-panel reveal">
+    <div class="hp-card">
+      <div class="hp-label">Status</div>
+      <div class="hp-value"><span class="status-dot">Available for opportunities</span></div>
+    </div>
+    <div class="hp-card">
+      <div class="hp-label">Current Role</div>
+      <div class="hp-value">UI/UX Designer · Ambitious Concern</div>
+    </div>
+    <div class="hp-card">
+      <div class="hp-label">Location</div>
+      <div class="hp-value">Accra, Greater Accra, Ghana</div>
+    </div>
+    <div class="hp-card">
+      <div class="hp-label">Email</div>
+      <div class="hp-value"><a href="mailto:kingsfordamponsah14@gmail.com">kingsfordamponsah14@gmail.com</a></div>
+    </div>
+    <div class="hp-card">
+      <div class="hp-label">WhatsApp</div>
+      <div class="hp-value"><a href="https://wa.me/233535803051" target="_blank">+233 53 580 3051</a></div>
+    </div>
+    <div class="hp-card">
+      <div class="hp-label">LinkedIn</div>
+      <div class="hp-value"><a href="https://www.linkedin.com/in/kingsfordfiifiamponsahdonkor" target="_blank">View Profile ↗</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="sec-header reveal">
+    <span class="sec-num">01</span>
+    <h2>About <em>me</em></h2>
+  </div>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>I'm Kingsford — a multi-disciplinary professional based in Accra, Ghana, working at the intersection of design, technology, and business strategy. I bring together UI/UX craftsmanship, full-stack engineering, and product management to build digital products that are both purposeful and precise.</p>
+      <p>Currently serving as <strong>UI/UX Designer at Ambitious Concern</strong>, where I lead the design of AC Academy's digital platform — shaping the experience for thousands of learners across Ghana and beyond.</p>
+      <p>I'm also actively exploring <strong>Cloud Computing</strong>, extending my technical depth to include scalable infrastructure and cloud-native architectures as the next frontier of my growth.</p>
+      <div class="about-facts">
+        <div class="fact">
+          <div class="fact-label">Based In</div>
+          <div class="fact-val">Accra, Ghana</div>
+        </div>
+        <div class="fact">
+          <div class="fact-label">Current Role</div>
+          <div class="fact-val">UI/UX Designer</div>
+        </div>
+        <div class="fact">
+          <div class="fact-label">Exploring</div>
+          <div class="fact-val">Cloud Computing</div>
+        </div>
+        <div class="fact">
+          <div class="fact-label">Availability</div>
+          <div class="fact-val">Open to Work</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-right reveal">
+      <div class="about-quote">
+        <p>"Great products are born at the intersection of empathy, engineering, and ambition."</p>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat-num">5+</div>
+        <div class="about-stat-label">Disciplines across design, development & product strategy</div>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat-num">∞</div>
+        <div class="about-stat-label">Commitment to building meaningful technology in Africa</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="sec-header reveal">
+    <span class="sec-num">02</span>
+    <h2>Skills & <em>expertise</em></h2>
+  </div>
+  <div class="skills-table reveal">
+    <div class="skill-cell">
+      <div class="skill-cell-title">UI / UX Design</div>
+      <div class="skill-tags">
+        <span class="stag">Figma</span><span class="stag">Prototyping</span>
+        <span class="stag">User Research</span><span class="stag">Wireframing</span>
+        <span class="stag">Design Systems</span><span class="stag">Interaction Design</span>
+      </div>
+    </div>
+    <div class="skill-cell">
+      <div class="skill-cell-title">Frontend Dev</div>
+      <div class="skill-tags">
+        <span class="stag">HTML / CSS</span><span class="stag">JavaScript</span>
+        <span class="stag">React</span><span class="stag">Tailwind CSS</span>
+        <span class="stag">TypeScript</span>
+      </div>
+    </div>
+    <div class="skill-cell">
+      <div class="skill-cell-title">Backend Dev</div>
+      <div class="skill-tags">
+        <span class="stag">Node.js</span><span class="stag">Python</span>
+        <span class="stag">REST APIs</span><span class="stag">PostgreSQL</span>
+        <span class="stag">Databases</span>
+      </div>
+    </div>
+    <div class="skill-cell">
+      <div class="skill-cell-title">Product Management</div>
+      <div class="skill-tags">
+        <span class="stag">Roadmapping</span><span class="stag">Agile / Scrum</span>
+        <span class="stag">User Stories</span><span class="stag">Analytics</span>
+        <span class="stag">Stakeholder Mgmt</span>
+      </div>
+    </div>
+    <div class="skill-cell">
+      <div class="skill-cell-title">Cloud & DevOps</div>
+      <div class="skill-tags">
+        <span class="stag">AWS (Learning)</span><span class="stag">Git / GitHub</span>
+        <span class="stag">Vercel</span><span class="stag">Docker</span>
+        <span class="stag">Linux</span>
+      </div>
+    </div>
+    <div class="skill-cell">
+      <div class="skill-cell-title">Entrepreneurship</div>
+      <div class="skill-tags">
+        <span class="stag">Business Strategy</span><span class="stag">Leadership</span>
+        <span class="stag">Growth</span><span class="stag">Pitching</span>
+        <span class="stag">Community Building</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="sec-header reveal">
+    <span class="sec-num">03</span>
+    <h2>Selected <em>work</em></h2>
+  </div>
+  <div class="projects-list">
+    <div class="project-row reveal">
+      <div class="project-index">01</div>
+      <div class="project-info">
+        <div class="project-tags-row">
+          <span class="ptag">UI/UX</span><span class="ptag">Figma</span><span class="ptag">Prototype</span>
+        </div>
+        <h3>Project Pollord</h3>
+        <p>A fully designed polling and voting platform prototype — crafted in Figma with meticulous attention to user flows, visual hierarchy, and accessible interactions. An end-to-end demonstration of product design thinking.</p>
+      </div>
+      <a href="https://www.figma.com/proto/kzE31WIVSoSToDvEASF9c4/PROJECT-POLLORD?node-id=0-1&t=5T2G8VkrD4IUq0fu-1" target="_blank" class="project-link">View Prototype ↗</a>
+    </div>
+    <div class="project-row reveal">
+      <div class="project-index">02</div>
+      <div class="project-info">
+        <div class="project-tags-row">
+          <span class="ptag">Web Design</span><span class="ptag">HTML/CSS/JS</span><span class="ptag">Branding</span>
+        </div>
+        <h3>AC Academy Website</h3>
+        <p>Designed and built the full website for Ambitious Concern's tech education platform — course listings, multi-method authentication modal, and a premium brand identity for the Ghanaian market.</p>
+      </div>
+      <span class="project-link project-link-dim">In Progress</span>
+    </div>
+    <div class="project-row reveal">
+      <div class="project-index">03</div>
+      <div class="project-info">
+        <div class="project-tags-row">
+          <span class="ptag">Full Stack</span><span class="ptag">React</span><span class="ptag">Vercel</span>
+        </div>
+        <h3>Personal Portfolio v1</h3>
+        <p>My original portfolio — built with React and deployed on Vercel. A clean showcase of design and development capabilities, continuously updated as new work is completed.</p>
+      </div>
+      <a href="https://kingportfolio-three.vercel.app" target="_blank" class="project-link">Live Site ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience" id="experience">
+  <div class="sec-header reveal">
+    <span class="sec-num">04</span>
+    <h2>Work <em>experience</em></h2>
+  </div>
+  <div class="exp-list">
+    <div class="exp-row reveal">
+      <div class="exp-date">2024 — Present</div>
+      <div class="exp-content">
+        <h3>UI/UX Designer</h3>
+        <div class="exp-company">Ambitious Concern · Accra, Ghana</div>
+        <p class="exp-desc">Leading the design of AC Academy's digital products — from the main website to course interfaces. Responsible for user research, wireframing, prototyping, and delivering polished designs that serve a growing community of learners across Ghana.</p>
+      </div>
+    </div>
+    <div class="exp-row reveal">
+      <div class="exp-date">2023 — Present</div>
+      <div class="exp-content">
+        <h3>Co-founder & Entrepreneur</h3>
+        <div class="exp-company">Ambitious Concern · Accra, Ghana</div>
+        <p class="exp-desc">Co-building a tech education startup focused on empowering Africa's next generation of technology professionals. Overseeing product vision, brand direction, and growth strategy for the AC Academy platform.</p>
+      </div>
+    </div>
+    <div class="exp-row reveal">
+      <div class="exp-date">Ongoing</div>
+      <div class="exp-content">
+        <h3>Freelance Full Stack Developer</h3>
+        <div class="exp-company">Independent · Remote</div>
+        <p class="exp-desc">Designing and building web applications for clients across Ghana and internationally — handling complete project lifecycles from discovery and design through to front-end development, back-end architecture, and deployment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="sec-header reveal">
+    <span class="sec-num">05</span>
+    <h2>Get in <em>touch</em></h2>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-intro reveal">
+      <p>I'm open to new opportunities, collaborations, and conversations. Whether you have a project in mind or simply want to connect — reach out through any channel below.</p>
+      <div class="contact-links">
+        <a href="mailto:kingsfordamponsah14@gmail.com" class="clink">
+          <div class="clink-icon">✉️</div>
+          <div class="clink-text">
+            <div class="clink-label">Email</div>
+            <div class="clink-val">kingsfordamponsah14@gmail.com</div>
+          </div>
+          <span class="clink-arrow">↗</span>
+        </a>
+        <a href="tel:+233535803051" class="clink">
+          <div class="clink-icon">📞</div>
+          <div class="clink-text">
+            <div class="clink-label">Phone</div>
+            <div class="clink-val">+233 53 580 3051</div>
+          </div>
+          <span class="clink-arrow">↗</span>
+        </a>
+        <a href="https://wa.me/233535803051" target="_blank" class="clink">
+          <div class="clink-icon">💬</div>
+          <div class="clink-text">
+            <div class="clink-label">WhatsApp</div>
+            <div class="clink-val">+233 53 580 3051</div>
+          </div>
+          <span class="clink-arrow">↗</span>
+        </a>
+        <a href="https://www.linkedin.com/in/kingsfordfiifiamponsahdonkor" target="_blank" class="clink">
+          <div class="clink-icon">💼</div>
+          <div class="clink-text">
+            <div class="clink-label">LinkedIn</div>
+            <div class="clink-val">kingsfordfiifiamponsahdonkor</div>
+          </div>
+          <span class="clink-arrow">↗</span>
+        </a>
+        <a href="https://www.instagram.com/ambitious.concern/" target="_blank" class="clink">
+          <div class="clink-icon">📸</div>
+          <div class="clink-text">
+            <div class="clink-label">Instagram</div>
+            <div class="clink-val">@ambitious.concern</div>
+          </div>
+          <span class="clink-arrow">↗</span>
+        </a>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="contact-form" id="contactForm">
+        <div class="form-row">
+          <div class="cf-group">
+            <label>Name</label>
+            <input type="text" placeholder="Your full name">
+          </div>
+          <div class="cf-group">
+            <label>Email</label>
+            <input type="email" placeholder="your@email.com">
+          </div>
+        </div>
+        <div class="cf-group">
+          <label>Subject</label>
+          <input type="text" placeholder="What's this about?">
+        </div>
+        <div class="cf-group">
+          <label>Message</label>
+          <textarea placeholder="Tell me about your project or idea..."></textarea>
+        </div>
+        <button class="btn-form" onclick="submitForm()">Send Message →</button>
+      </div>
+      <div class="form-success" id="formSuccess">
+        <h3>Message received.</h3>
+        <p>Thank you for reaching out. Kingsford will be in touch shortly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Kingsford Fiifi Amponsah Donkor · Accra, Ghana</p>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/kingsfordfiifiamponsahdonkor" target="_blank">LinkedIn</a>
+    <a href="https://wa.me/233535803051" target="_blank">WhatsApp</a>
+    <a href="https://www.instagram.com/ambitious.concern/" target="_blank">Instagram</a>
+    <a href="https://x.com/Ambitious__C" target="_blank">X</a>
+    <a href="https://kingportfolio-three.vercel.app" target="_blank">Portfolio</a>
+  </div>
+</footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 70);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  revealEls.forEach(el => obs.observe(el));
+
+  function submitForm() {
+    document.getElementById('contactForm').style.display = 'none';
+    document.getElementById('formSuccess').classList.add('show');
+  }
+</script>
+</body>
+</html>
